@@ -1,0 +1,1 @@
+kubectl create secret docker-registry k8sdemod3secret --docker-server=accreditationcontainerregistry.azurecr.io --docker-username=accreditationcontainerregistry --docker-password=Vrjswo5reGkn2=ZGbkSF3NNq7BSQdV7d --docker-email=ems@deltatre.it -n dev

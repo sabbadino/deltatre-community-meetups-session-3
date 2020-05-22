@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8sdemohelm-config-map
+  namespace: {{ .Values.app.namespace }}
+  labels:
+     name: {{ .Values.app.name }}
+data:
+  ASPNETCOREENVIRONMENT: {{ .Values.app.namespace }}
+  appsettings.{{ .Values.app.namespace }}.json: |-
+    {
+      "Environment": "{{ .Values.app.namespace }}",
+      "MySetting": "{{ .Values.configInfo.mySetting }}"
+    }

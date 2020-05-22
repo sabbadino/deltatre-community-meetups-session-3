@@ -1,0 +1,6 @@
+replicaCount: 2
+image:
+  name: k8sdemo
+  tag: latest
+
+  

@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: k8sdemohelm
+  namespace: {{ .Values.app.namespace }}
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: k8s-in-action.westeurope.cloudapp.azure.com
+      http:
+        paths:
+          - path: /demoapihelm
+            backend:
+              serviceName: k8sdemohelm
+              servicePort: 80

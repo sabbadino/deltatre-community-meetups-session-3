@@ -1,0 +1,1 @@
+helm delete k8sdemowithhelm --purge

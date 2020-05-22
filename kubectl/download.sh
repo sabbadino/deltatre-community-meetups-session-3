@@ -1,0 +1,1 @@
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.18.2/bin/windows/amd64/kubectl.exe
