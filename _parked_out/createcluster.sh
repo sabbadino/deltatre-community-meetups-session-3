@@ -1,1 +1,0 @@
-./kind.exe create cluster --config kind-example-config.yaml --name deltatre-k8s-basic

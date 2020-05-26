@@ -1,0 +1,1 @@
+https://deltatre-k8s-basic-aks-public.westeurope.cloudapp.azure.com/demoapi/swagger/index.html

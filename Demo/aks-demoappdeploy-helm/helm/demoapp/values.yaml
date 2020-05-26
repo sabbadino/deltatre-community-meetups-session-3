@@ -2,5 +2,7 @@ replicaCount: 2
 image:
   name: k8sdemo
   tag: latest
+app:
+   name: k8sdemo    
 
   
