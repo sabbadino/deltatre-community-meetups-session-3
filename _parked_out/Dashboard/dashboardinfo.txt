@@ -1,0 +1,22 @@
+https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+
+#assing admin cluster role to dash biard service account 
+kubectl apply -f ./assigndashboardusertocluster-admin.yaml
+kubectl describe ClusterRoleBinding kubernetes-dashboard-admin -n kubernetes-dashboard
+
+
+#GET TOKEN for service account created above
+https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
+kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep kubernetes-dashboard | awk '{print $1}')
+
+
+kubectl proxy
+access 
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+
+select auth with token 
+provide token 
+
+
+ eyJhbGciOiJSUzI1NiIsImtpZCI6IkVfQVQzU1d3NjVNb2JlNDI0anpHaUJNTk1nS2xZWFNlLU5pZFBYSXFBWEkifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZC10b2tlbi16NGJqcCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjY4MmYwMGQ4LWIyNDItNDQ5OC05MTBmLWNkM2E0MjdhMjM4ZiIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlcm5ldGVzLWRhc2hib2FyZDprdWJlcm5ldGVzLWRhc2hib2FyZCJ9.gCE5KyiUmsdHUe9ppaFSc0yvlcGuV3505pmAN8ZYZTRECcRIdWV1m-erD6El-sCTWmiV6K4EbkwHZ51-90dzsl6TmKANaF4exPL-IuzX74q3zzFUdgq3sz4eu67Qv1QqiaEQhcp0dpwy1JfLqE-zwbJs62bXNnN5uE4rHMnbaMGNnzGAfruAvN_Tmiw1r2jZ60JIlvkX4gshmZFlr_OFlOVaYnWbzQBz1FAUhh2anDNN9_FqXmfdXLnauDzZf0JYDnQhC9U6wqSEJkGThRz-k_MUGSx4w5pMu8fblBoUHLB0dL2RaLSuxx-v3mLQ1PR0m_az2Tk6wGLjs1CUZzRTyw
