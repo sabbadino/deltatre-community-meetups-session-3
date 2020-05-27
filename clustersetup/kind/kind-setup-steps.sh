@@ -14,7 +14,6 @@ kubectl wait --namespace ingress-nginx   --for=condition=ready pod   --selector=
 
 # get dashboard secret
 kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep kubernetes-dashboard | awk '{print $1}')
-cd ..
 #kubectl proxy
 #http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 

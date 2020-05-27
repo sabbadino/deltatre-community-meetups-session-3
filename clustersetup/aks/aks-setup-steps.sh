@@ -1,5 +1,8 @@
-# in stall az cli https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest
+# install az cli https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest
+# this script assumes that the a resource group k8s-basic-demo-aks has already been created 
 az login 
+# 
+# replace "Enterprise - Event Management System" with your subscription name 
 az account set --subscription "Enterprise - Event Management System"
 az aks create --resource-group k8s-basic-demo-aks --name deltatre-k8s-basic-aks  --node-count 2 --output table --generate-ssh-keys
 az aks get-credentials --resource-group k8s-basic-demo-aks --name deltatre-k8s-basic-aks
