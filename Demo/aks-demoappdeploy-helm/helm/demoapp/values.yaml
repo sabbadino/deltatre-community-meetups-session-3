@@ -4,5 +4,7 @@ image:
   tag: latest
 app:
    name: k8sdemo    
+configInfo:  
+  mySetting: "default-config"   
 
   

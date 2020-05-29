@@ -5,6 +5,6 @@ image:
 app: 
   namespace: dev
 configInfo:  
-  mySetting: "ciao2"
+  mySetting: "custom-value"
 
   
