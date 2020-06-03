@@ -3,7 +3,8 @@ image:
   name: k8sdemo
   tag: latest
 app:
-   name: k8sdemo    
+   name: k8sdemo
+   namespace: dev
 configInfo:  
   mySetting: "default-config"   
 
