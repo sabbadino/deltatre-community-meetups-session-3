@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: k8sdemohelm-secure
+  namespace: {{ .Values.app.namespace }}
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  tls:
+  - hosts:
+    - deltatre-k8s-basic-aks-public.westeurope.cloudapp.azure.com
+    secretName: tls-secret
+  rules:
+    - host: deltatre-k8s-basic-aks-public.westeurope.cloudapp.azure.com
+      http:
+        paths:
+         - path: /demoapi(/|$)(.*)              
+           backend:
+             serviceName: k8sdemohelm
+             servicePort: 80
+        

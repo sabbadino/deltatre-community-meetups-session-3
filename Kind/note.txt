@@ -1,0 +1,2 @@
+kind delete clusters --all
+kind get clusters
